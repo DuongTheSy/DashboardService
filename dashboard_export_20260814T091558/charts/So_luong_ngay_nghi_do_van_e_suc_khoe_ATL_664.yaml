@@ -1,0 +1,130 @@
+slice_name: "S\u1ED1 l\u01B0\u1EE3ng ng\xE0y ngh\u1EC9 do v\u1EA5n \u0111\u1EC1 s\u1EE9\
+  c kh\u1ECFe, ATL\u0110"
+description: null
+certified_by: null
+certification_details: null
+viz_type: echarts_timeseries_bar
+params:
+  datasource: 93__table
+  viz_type: echarts_timeseries_bar
+  slice_id: 664
+  x_axis: ORG_NAME4
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  metrics:
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: TOTAL_HEALTH_SAFETY_LEAVE_DAYS
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 2273
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: INT
+      type_generic: 0
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: true
+    label: "S\u1ED1 ng\xE0y ngh\u1EC9"
+    optionName: metric_7bwrf4w3j9s_7eredmgydln
+    sqlExpression: null
+  groupby: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: REPORT_DATE
+  order_desc: true
+  row_limit: 1000
+  truncate_metric: true
+  show_empty_columns: true
+  comparison_type: values
+  annotation_layers: []
+  forecastPeriods: 10
+  forecastInterval: 0.8
+  orientation: horizontal
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  sort_series_type: sum
+  color_scheme: presetColors
+  time_shift_color: true
+  show_value: false
+  only_total: true
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  x_axis_time_format: smart_date
+  y_axis_format: SMART_NUMBER
+  y_axis_bounds:
+  - null
+  - null
+  truncateXAxis: true
+  rich_tooltip: true
+  showTooltipTotal: true
+  tooltipTimeFormat: smart_date
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":93,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"REPORT_DATE\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[{\"columnType\":\"BASE_AXIS\",\"sqlExpression\":\"ORG_NAME4\",\"\
+  label\":\"ORG_NAME4\",\"expressionType\":\"SQL\"}],\"metrics\":[{\"aggregate\":\"\
+  SUM\",\"column\":{\"advanced_data_type\":null,\"certification_details\":null,\"\
+  certified_by\":null,\"column_name\":\"TOTAL_HEALTH_SAFETY_LEAVE_DAYS\",\"description\"\
+  :null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":2273,\"is_certified\"\
+  :false,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"INT\",\"type_generic\"\
+  :0,\"verbose_name\":null,\"warning_markdown\":null},\"datasourceWarning\":false,\"\
+  expressionType\":\"SIMPLE\",\"hasCustomLabel\":true,\"label\":\"S\u1ED1 ng\xE0y\
+  \ ngh\u1EC9\",\"optionName\":\"metric_7bwrf4w3j9s_7eredmgydln\",\"sqlExpression\"\
+  :null}],\"orderby\":[[{\"aggregate\":\"SUM\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"TOTAL_HEALTH_SAFETY_LEAVE_DAYS\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":2273,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"INT\",\"type_generic\":0,\"verbose_name\":null,\"warning_markdown\":null},\"\
+  datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":true,\"\
+  label\":\"S\u1ED1 ng\xE0y ngh\u1EC9\",\"optionName\":\"metric_7bwrf4w3j9s_7eredmgydln\"\
+  ,\"sqlExpression\":null},false]],\"annotation_layers\":[],\"row_limit\":1000,\"\
+  series_columns\":[],\"series_limit\":0,\"order_desc\":true,\"url_params\":{},\"\
+  custom_params\":{},\"custom_form_data\":{},\"time_offsets\":[],\"post_processing\"\
+  :[{\"operation\":\"pivot\",\"options\":{\"index\":[\"ORG_NAME4\"],\"columns\":[],\"\
+  aggregates\":{\"S\u1ED1 ng\xE0y ngh\u1EC9\":{\"operator\":\"mean\"}},\"drop_missing_columns\"\
+  :false}},{\"operation\":\"flatten\"}]}],\"form_data\":{\"datasource\":\"93__table\"\
+  ,\"viz_type\":\"echarts_timeseries_bar\",\"slice_id\":664,\"x_axis\":\"ORG_NAME4\"\
+  ,\"x_axis_sort_asc\":true,\"x_axis_sort_series\":\"name\",\"x_axis_sort_series_ascending\"\
+  :true,\"metrics\":[{\"aggregate\":\"SUM\",\"column\":{\"advanced_data_type\":null,\"\
+  certification_details\":null,\"certified_by\":null,\"column_name\":\"TOTAL_HEALTH_SAFETY_LEAVE_DAYS\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":2273,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"INT\",\"type_generic\":0,\"verbose_name\":null,\"warning_markdown\":null},\"\
+  datasourceWarning\":false,\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":true,\"\
+  label\":\"S\u1ED1 ng\xE0y ngh\u1EC9\",\"optionName\":\"metric_7bwrf4w3j9s_7eredmgydln\"\
+  ,\"sqlExpression\":null}],\"groupby\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\"\
+  ,\"comparator\":\"No filter\",\"expressionType\":\"SIMPLE\",\"operator\":\"TEMPORAL_RANGE\"\
+  ,\"subject\":\"REPORT_DATE\"}],\"order_desc\":true,\"row_limit\":1000,\"truncate_metric\"\
+  :true,\"show_empty_columns\":true,\"comparison_type\":\"values\",\"annotation_layers\"\
+  :[],\"forecastPeriods\":10,\"forecastInterval\":0.8,\"orientation\":\"horizontal\"\
+  ,\"x_axis_title_margin\":15,\"y_axis_title_margin\":30,\"y_axis_title_position\"\
+  :\"Left\",\"sort_series_type\":\"sum\",\"color_scheme\":\"presetColors\",\"time_shift_color\"\
+  :true,\"show_value\":false,\"only_total\":true,\"show_legend\":true,\"legendType\"\
+  :\"scroll\",\"legendOrientation\":\"top\",\"x_axis_time_format\":\"smart_date\"\
+  ,\"y_axis_format\":\"SMART_NUMBER\",\"y_axis_bounds\":[null,null],\"truncateXAxis\"\
+  :true,\"rich_tooltip\":true,\"showTooltipTotal\":true,\"tooltipTimeFormat\":\"smart_date\"\
+  ,\"extra_form_data\":{},\"dashboards\":[31],\"force\":false,\"result_format\":\"\
+  json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"\
+  }"
+cache_timeout: null
+uuid: ba7d0f07-2129-49a0-8ad4-d31b7dc5ef47
+version: 1.0.0
+dataset_uuid: f0974bd6-dbb2-4dfd-8aff-6a2b611e6c95

@@ -1,0 +1,133 @@
+slice_name: "T\u1EF7 l\u1EC7 \u0111\u01B0\u1EE3c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7\
+  m v\u1EE5"
+description: null
+certified_by: null
+certification_details: null
+viz_type: echarts_timeseries_line
+params:
+  datasource: 99__table
+  viz_type: echarts_timeseries_line
+  slice_id: 674
+  x_axis: REPORT_DATE
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  metrics:
+  - aggregate: null
+    column: null
+    datasourceWarning: false
+    expressionType: SQL
+    hasCustomLabel: true
+    label: "T\u1EC9 l\u1EC7 \u0111\u01B0\u1EE3c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7\
+      m v\u1EE5"
+    optionName: metric_ejbdqws5u4t_i5cn9yxqmq
+    sqlExpression: SUM(MANAGEMENT_POSITION_COUNT_FILLED) * 100 / SUM (EMPLOYEE_COUNT_APPOINTED)
+  groupby: []
+  adhoc_filters:
+  - expressionType: SIMPLE
+    subject: REPORT_DATE
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_j6aug318pd_dfxc3lupokg
+  - expressionType: SQL
+    sqlExpression: REPORT_DATE > DATE'2016-01-01'
+    clause: WHERE
+    subject: REPORT_DATE
+    operator: TEMPORAL_RANGE
+    operatorId: TEMPORAL_RANGE
+    comparator: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_s3utzuxqtq_5pnet32nx63
+  order_desc: true
+  row_limit: 10000
+  truncate_metric: true
+  show_empty_columns: true
+  comparison_type: values
+  annotation_layers: []
+  forecastPeriods: 10
+  forecastInterval: 0.8
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  sort_series_type: sum
+  color_scheme: presetColors
+  time_shift_color: true
+  seriesType: line
+  show_value: false
+  only_total: true
+  area: false
+  opacity: 0.2
+  markerEnabled: true
+  markerSize: 6
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  x_axis_time_format: smart_date
+  rich_tooltip: true
+  showTooltipTotal: true
+  tooltipTimeFormat: smart_date
+  y_axis_format: SMART_NUMBER
+  truncateXAxis: true
+  y_axis_bounds:
+  - null
+  - null
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":99,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"REPORT_DATE\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"having\":\"\",\"where\":\"(REPORT_DATE > DATE'2016-01-01')\"\
+  },\"applied_time_extras\":{},\"columns\":[{\"columnType\":\"BASE_AXIS\",\"sqlExpression\"\
+  :\"REPORT_DATE\",\"label\":\"REPORT_DATE\",\"expressionType\":\"SQL\"}],\"metrics\"\
+  :[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"expressionType\"\
+  :\"SQL\",\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7 \u0111\u01B0\u1EE3\
+  c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7m v\u1EE5\",\"optionName\":\"metric_ejbdqws5u4t_i5cn9yxqmq\"\
+  ,\"sqlExpression\":\"SUM(MANAGEMENT_POSITION_COUNT_FILLED) * 100 / SUM (EMPLOYEE_COUNT_APPOINTED)\"\
+  }],\"orderby\":[[{\"aggregate\":null,\"column\":null,\"datasourceWarning\":false,\"\
+  expressionType\":\"SQL\",\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7 \u0111\
+  \u01B0\u1EE3c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7m v\u1EE5\",\"optionName\":\"metric_ejbdqws5u4t_i5cn9yxqmq\"\
+  ,\"sqlExpression\":\"SUM(MANAGEMENT_POSITION_COUNT_FILLED) * 100 / SUM (EMPLOYEE_COUNT_APPOINTED)\"\
+  },false]],\"annotation_layers\":[],\"row_limit\":10000,\"series_columns\":[],\"\
+  series_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\"\
+  :{},\"time_offsets\":[],\"post_processing\":[{\"operation\":\"pivot\",\"options\"\
+  :{\"index\":[\"REPORT_DATE\"],\"columns\":[],\"aggregates\":{\"T\u1EC9 l\u1EC7 \u0111\
+  \u01B0\u1EE3c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7m v\u1EE5\":{\"operator\":\"mean\"\
+  }},\"drop_missing_columns\":false}},{\"operation\":\"flatten\"}]}],\"form_data\"\
+  :{\"datasource\":\"99__table\",\"viz_type\":\"echarts_timeseries_line\",\"slice_id\"\
+  :674,\"x_axis\":\"REPORT_DATE\",\"x_axis_sort_asc\":true,\"x_axis_sort_series\"\
+  :\"name\",\"x_axis_sort_series_ascending\":true,\"metrics\":[{\"aggregate\":null,\"\
+  column\":null,\"datasourceWarning\":false,\"expressionType\":\"SQL\",\"hasCustomLabel\"\
+  :true,\"label\":\"T\u1EC9 l\u1EC7 \u0111\u01B0\u1EE3c b\u1ED5 nhi\u1EC7m, giao nhi\u1EC7\
+  m v\u1EE5\",\"optionName\":\"metric_ejbdqws5u4t_i5cn9yxqmq\",\"sqlExpression\":\"\
+  SUM(MANAGEMENT_POSITION_COUNT_FILLED) * 100 / SUM (EMPLOYEE_COUNT_APPOINTED)\"}],\"\
+  groupby\":[],\"adhoc_filters\":[{\"expressionType\":\"SIMPLE\",\"subject\":\"REPORT_DATE\"\
+  ,\"operator\":\"TEMPORAL_RANGE\",\"comparator\":\"No filter\",\"clause\":\"WHERE\"\
+  ,\"sqlExpression\":null,\"isExtra\":false,\"isNew\":false,\"datasourceWarning\"\
+  :false,\"filterOptionName\":\"filter_j6aug318pd_dfxc3lupokg\"},{\"expressionType\"\
+  :\"SQL\",\"sqlExpression\":\"REPORT_DATE > DATE'2016-01-01'\",\"clause\":\"WHERE\"\
+  ,\"subject\":\"REPORT_DATE\",\"operator\":\"TEMPORAL_RANGE\",\"operatorId\":\"TEMPORAL_RANGE\"\
+  ,\"comparator\":null,\"isExtra\":false,\"isNew\":false,\"datasourceWarning\":false,\"\
+  filterOptionName\":\"filter_s3utzuxqtq_5pnet32nx63\"}],\"order_desc\":true,\"row_limit\"\
+  :10000,\"truncate_metric\":true,\"show_empty_columns\":true,\"comparison_type\"\
+  :\"values\",\"annotation_layers\":[],\"forecastPeriods\":10,\"forecastInterval\"\
+  :0.8,\"x_axis_title_margin\":15,\"y_axis_title_margin\":30,\"y_axis_title_position\"\
+  :\"Left\",\"sort_series_type\":\"sum\",\"color_scheme\":\"presetColors\",\"time_shift_color\"\
+  :true,\"seriesType\":\"line\",\"show_value\":false,\"only_total\":true,\"area\"\
+  :false,\"opacity\":0.2,\"markerEnabled\":true,\"markerSize\":6,\"show_legend\":true,\"\
+  legendType\":\"scroll\",\"legendOrientation\":\"top\",\"x_axis_time_format\":\"\
+  smart_date\",\"rich_tooltip\":true,\"showTooltipTotal\":true,\"tooltipTimeFormat\"\
+  :\"smart_date\",\"y_axis_format\":\"SMART_NUMBER\",\"truncateXAxis\":true,\"y_axis_bounds\"\
+  :[null,null],\"extra_form_data\":{},\"dashboards\":[31],\"force\":false,\"result_format\"\
+  :\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"\
+  full\"}"
+cache_timeout: null
+uuid: dcc0e34a-a567-48d6-88ca-36eee06bfaac
+version: 1.0.0
+dataset_uuid: a652f57b-f769-49dc-8dd1-bd4e468c23aa

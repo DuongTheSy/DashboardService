@@ -1,0 +1,14 @@
+database_name: PVPUS_LIVE
+sqlalchemy_uri: oracle://PVP_LIVE:XXXXXXXXXX@103.5.209.91:1521/orcl
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+impersonate_user: false
+uuid: 7ccd8ff9-405f-479a-a82d-3a41129b988b
+version: 1.0.0

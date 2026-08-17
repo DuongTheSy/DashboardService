@@ -1,0 +1,14 @@
+{
+  "name": "pvpus-audit-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lấy số liệu thật từ Oracle PVPUS_LIVE để vẽ lại 33 chart của dashboard Superset PVPUS_LIVE (PVPTCT), phục vụ đối chiếu / port sang Histaff.",
+  "type": "commonjs",
+  "scripts": {
+    "fetch": "node src/fetch.js",
+    "report": "node src/serve.js"
+  },
+  "dependencies": {
+    "oracledb": "^6.5.1"
+  }
+}

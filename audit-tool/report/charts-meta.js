@@ -1,0 +1,46 @@
+// Layout phía trình duyệt, rút từ dashboard_export_20260814T091558/dashboards/*.yaml.
+// w dùng grid 12 cột giống Superset.
+window.CHARTS_META = [
+  { tab: "Tổng hợp", rows: [
+    [ {id:641,name:"Tổng số lượng lao động",viz:"big_number_total",w:4},
+      {id:642,name:"Tổng số lượng FTE",viz:"big_number_total",w:4},
+      {id:668,name:"Tỷ lệ lao động quản lý",viz:"big_number_total",w:4} ],
+    [ {id:648,name:"Trình độ học vấn",viz:"pie",w:4},
+      {id:649,name:"Độ tuổi",viz:"pie",w:4},
+      {id:650,name:"Thâm niên công tác",viz:"pie",w:4} ],
+    [ {id:646,name:"Doanh thu",viz:"echarts_timeseries_bar",w:6},
+      {id:645,name:"Lợi nhuận trước thuế",viz:"echarts_timeseries_bar",w:6} ],
+    [ {id:643,name:"Tổng thu nhập",viz:"echarts_timeseries_bar",w:6},
+      {id:647,name:"Lương trung bình",viz:"echarts_timeseries_bar",w:6} ],
+    [ {id:644,name:"Chi phí nhân công",viz:"echarts_timeseries_bar",w:4},
+      {id:667,name:"Tỉ lệ nghỉ việc",viz:"echarts_timeseries_line",w:4} ],
+  ]},
+  { tab: "Lực lượng lao động", rows: [
+    [ {id:651,name:"Tổng số lượng nhân sự",viz:"echarts_timeseries_bar",w:4},
+      {id:652,name:"Tổng số lượng FTE",viz:"echarts_timeseries_bar",w:4},
+      {id:653,name:"Số lượng nhân sự tuyển mới",viz:"echarts_timeseries_line",w:4} ],
+    [ {id:654,name:"Số lượng nhân sự nghỉ việc",viz:"echarts_timeseries_bar",w:4},
+      {id:655,name:"Tỉ lệ nghỉ việc",viz:"echarts_timeseries_line",w:4},
+      {id:656,name:"Tỷ lệ đội ngũ kỹ sư, kỹ thuật",viz:"pie",w:4} ],
+    [ {id:671,name:"Thâm niên trung bình",viz:"big_number_total",w:4},
+      {id:657,name:"Độ tuổi trung bình",viz:"big_number_total",w:4},
+      {id:672,name:"Phạm vi quản lý",viz:"big_number_total",w:4} ],
+    [ {id:673,name:"Tỷ lệ nhân sự được điều động, luân chuyển nội bộ",viz:"echarts_timeseries_line",w:4},
+      {id:674,name:"Tỷ lệ được bổ nhiệm, giao nhiệm vụ",viz:"echarts_timeseries_line",w:4} ],
+  ]},
+  { tab: "Lương & chi phí nhân sự", rows: [
+    [ {id:658,name:"Tỉ lệ quỹ lương / doanh thu",viz:"big_number_total",w:4},
+      {id:669,name:"Chi phí làm thêm giờ",viz:"big_number_total",w:4},
+      {id:666,name:"Chi phí nhân công",viz:"echarts_timeseries_bar",w:4} ],
+    [ {id:670,name:"Mức tăng lương",viz:"echarts_timeseries_line",w:4},
+      {id:665,name:"Tổng thu nhập",viz:"echarts_timeseries_bar",w:4} ],
+  ]},
+  { tab: "Chấm công và thời gian làm việc", rows: [
+    [ {id:659,name:"Tỷ lệ vắng mặt",viz:"echarts_timeseries_line",w:4},
+      {id:660,name:"Tỉ lệ làm thêm giờ",viz:"echarts_timeseries_line",w:4},
+      {id:661,name:"Tỷ lệ sử dụng nhân lực",viz:"echarts_timeseries_line",w:4} ],
+    [ {id:662,name:"Tỷ lệ sử dụng ngày nghỉ",viz:"big_number_total",w:4},
+      {id:663,name:"Tổng công làm việc hưởng lương",viz:"echarts_timeseries_bar",w:4},
+      {id:664,name:"Số lượng ngày nghỉ do vấn đề sức khỏe, ATLĐ",viz:"echarts_timeseries_bar",w:4} ],
+  ]},
+];

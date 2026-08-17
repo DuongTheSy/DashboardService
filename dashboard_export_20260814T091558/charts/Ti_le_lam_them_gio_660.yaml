@@ -1,0 +1,100 @@
+slice_name: "T\u1EC9 l\u1EC7 l\xE0m th\xEAm gi\u1EDD"
+description: null
+certified_by: null
+certification_details: null
+viz_type: echarts_timeseries_line
+params:
+  datasource: 89__table
+  viz_type: echarts_timeseries_line
+  x_axis: REPORT_DATE
+  time_grain_sqla: P1M
+  metrics:
+  - expressionType: SQL
+    sqlExpression: ROUND(SUM(OT_HOURS_CONVERTED) / 24 * 100/ NULLIF(SUM(TOTAL_WORKING_XJ),
+      0), 2)
+    column: null
+    aggregate: null
+    datasourceWarning: false
+    hasCustomLabel: true
+    label: "T\u1EC9 l\u1EC7 l\xE0m th\xEAm gi\u1EDD"
+    optionName: metric_1kgvpt6so7b_6bmjaeht4tb
+  groupby: []
+  adhoc_filters:
+  - clause: WHERE
+    subject: REPORT_DATE
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    expressionType: SIMPLE
+  row_limit: 1000
+  truncate_metric: true
+  show_empty_columns: true
+  comparison_type: values
+  annotation_layers: []
+  forecastPeriods: 10
+  forecastInterval: 0.8
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  sort_series_type: sum
+  color_scheme: supersetColors
+  time_shift_color: true
+  seriesType: line
+  only_total: true
+  opacity: 0.2
+  markerSize: 6
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  x_axis_time_format: smart_date
+  rich_tooltip: true
+  showTooltipTotal: true
+  tooltipTimeFormat: smart_date
+  y_axis_format: SMART_NUMBER
+  truncateXAxis: true
+  y_axis_bounds:
+  - null
+  - null
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":89,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"REPORT_DATE\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\"\
+  :\"\"},\"applied_time_extras\":{},\"columns\":[{\"timeGrain\":\"P1M\",\"columnType\"\
+  :\"BASE_AXIS\",\"sqlExpression\":\"REPORT_DATE\",\"label\":\"REPORT_DATE\",\"expressionType\"\
+  :\"SQL\"}],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(OT_HOURS_CONVERTED)\
+  \ / 24 * 100/ NULLIF(SUM(TOTAL_WORKING_XJ), 0), 2)\",\"column\":null,\"aggregate\"\
+  :null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7\
+  \ l\xE0m th\xEAm gi\u1EDD\",\"optionName\":\"metric_1kgvpt6so7b_6bmjaeht4tb\"}],\"\
+  orderby\":[[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(OT_HOURS_CONVERTED)\
+  \ / 24 * 100/ NULLIF(SUM(TOTAL_WORKING_XJ), 0), 2)\",\"column\":null,\"aggregate\"\
+  :null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7\
+  \ l\xE0m th\xEAm gi\u1EDD\",\"optionName\":\"metric_1kgvpt6so7b_6bmjaeht4tb\"},false]],\"\
+  annotation_layers\":[],\"row_limit\":1000,\"series_columns\":[],\"series_limit\"\
+  :0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\"\
+  :{},\"time_offsets\":[],\"post_processing\":[{\"operation\":\"pivot\",\"options\"\
+  :{\"index\":[\"REPORT_DATE\"],\"columns\":[],\"aggregates\":{\"T\u1EC9 l\u1EC7 l\xE0\
+  m th\xEAm gi\u1EDD\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},{\"\
+  operation\":\"flatten\"}]}],\"form_data\":{\"datasource\":\"89__table\",\"viz_type\"\
+  :\"echarts_timeseries_line\",\"x_axis\":\"REPORT_DATE\",\"time_grain_sqla\":\"P1M\"\
+  ,\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(OT_HOURS_CONVERTED)\
+  \ / 24 * 100/ NULLIF(SUM(TOTAL_WORKING_XJ), 0), 2)\",\"column\":null,\"aggregate\"\
+  :null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7\
+  \ l\xE0m th\xEAm gi\u1EDD\",\"optionName\":\"metric_1kgvpt6so7b_6bmjaeht4tb\"}],\"\
+  groupby\":[],\"adhoc_filters\":[{\"clause\":\"WHERE\",\"subject\":\"REPORT_DATE\"\
+  ,\"operator\":\"TEMPORAL_RANGE\",\"comparator\":\"No filter\",\"expressionType\"\
+  :\"SIMPLE\"}],\"row_limit\":1000,\"truncate_metric\":true,\"show_empty_columns\"\
+  :true,\"comparison_type\":\"values\",\"annotation_layers\":[],\"forecastPeriods\"\
+  :10,\"forecastInterval\":0.8,\"x_axis_title_margin\":15,\"y_axis_title_margin\"\
+  :30,\"y_axis_title_position\":\"Left\",\"sort_series_type\":\"sum\",\"color_scheme\"\
+  :\"supersetColors\",\"time_shift_color\":true,\"seriesType\":\"line\",\"only_total\"\
+  :true,\"opacity\":0.2,\"markerSize\":6,\"show_legend\":true,\"legendType\":\"scroll\"\
+  ,\"legendOrientation\":\"top\",\"x_axis_time_format\":\"smart_date\",\"rich_tooltip\"\
+  :true,\"showTooltipTotal\":true,\"tooltipTimeFormat\":\"smart_date\",\"y_axis_format\"\
+  :\"SMART_NUMBER\",\"truncateXAxis\":true,\"y_axis_bounds\":[null,null],\"extra_form_data\"\
+  :{},\"dashboards\":[31],\"force\":false,\"result_format\":\"json\",\"result_type\"\
+  :\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}"
+cache_timeout: null
+uuid: c593638a-ba11-4549-8c0a-4bda425ad9b1
+version: 1.0.0
+dataset_uuid: dad19051-c1ff-43b2-95ae-49bd15322386

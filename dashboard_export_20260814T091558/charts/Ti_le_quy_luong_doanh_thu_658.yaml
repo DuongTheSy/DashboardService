@@ -1,0 +1,41 @@
+slice_name: "T\u1EC9 l\u1EC7 qu\u1EF9 l\u01B0\u01A1ng / doanh thu"
+description: null
+certified_by: null
+certification_details: null
+viz_type: big_number_total
+params:
+  datasource: 87__table
+  viz_type: big_number_total
+  metric:
+    expressionType: SQL
+    sqlExpression: SUM(SALARY_FUND) * 100 / SUM(REVENUE_AMOUNT)
+    column: null
+    aggregate: null
+    datasourceWarning: false
+    hasCustomLabel: false
+    label: SUM(SALARY_FUND) * 100 / SUM(REVENUE_AMOUNT)
+    optionName: metric_sjibefjo2a_jpsls5g6xor
+  adhoc_filters:
+  - clause: WHERE
+    subject: REPORT_DATE
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    expressionType: SIMPLE
+  header_font_size: 0.4
+  subheader_font_size: 0.15
+  y_axis_format: SMART_NUMBER
+  time_format: smart_date
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: '{"datasource":{"id":87,"type":"table"},"force":false,"queries":[{"filters":[{"col":"REPORT_DATE","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[],"metrics":[{"expressionType":"SQL","sqlExpression":"SUM(SALARY_FUND)
+  * 100 / SUM(REVENUE_AMOUNT)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(SALARY_FUND)
+  * 100 / SUM(REVENUE_AMOUNT)","optionName":"metric_sjibefjo2a_jpsls5g6xor"}],"annotation_layers":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"87__table","viz_type":"big_number_total","metric":{"expressionType":"SQL","sqlExpression":"SUM(SALARY_FUND)
+  * 100 / SUM(REVENUE_AMOUNT)","column":null,"aggregate":null,"datasourceWarning":false,"hasCustomLabel":false,"label":"SUM(SALARY_FUND)
+  * 100 / SUM(REVENUE_AMOUNT)","optionName":"metric_sjibefjo2a_jpsls5g6xor"},"adhoc_filters":[{"clause":"WHERE","subject":"REPORT_DATE","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","expressionType":"SIMPLE"}],"header_font_size":0.4,"subheader_font_size":0.15,"y_axis_format":"SMART_NUMBER","time_format":"smart_date","extra_form_data":{},"dashboards":[31],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: a5875591-3257-44ac-962c-676de53f45b6
+version: 1.0.0
+dataset_uuid: 895a239f-b984-45eb-a6a1-80bffaa58246

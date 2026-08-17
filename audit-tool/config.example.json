@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy file này thành config.json (đã được .gitignore, không commit) rồi điền thông tin thật vào.",
+  "user": "PVP_LIVE",
+  "password": "",
+  "connectString": "103.5.209.91:1521/orcl",
+  "filters": {
+    "orgName3": "Tổng công ty Điện lực Dầu khí Việt Nam - CTCP",
+    "year": null,
+    "month": null
+  }
+}

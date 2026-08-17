@@ -1,0 +1,55 @@
+slice_name: "T\u1EF7 l\u1EC7 s\u1EED d\u1EE5ng ng\xE0y ngh\u1EC9"
+description: null
+certified_by: null
+certification_details: null
+viz_type: big_number_total
+params:
+  datasource: 91__table
+  viz_type: big_number_total
+  metric:
+    expressionType: SQL
+    sqlExpression: ROUND(SUM(USED_LEAVE_DAYS) * 100 / NULLIF(SUM(TOTAL_LEAVE_DAYS),
+      0), 2)
+    column: null
+    aggregate: null
+    datasourceWarning: false
+    hasCustomLabel: true
+    label: "T\u1EC9 l\u1EC7 s\u1EED d\u1EE5ng ng\xE0y ngh\u1EC9"
+    optionName: metric_yrxeesv5bn_e6mwccjf96h
+  adhoc_filters:
+  - clause: WHERE
+    subject: REPORT_DATE
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    expressionType: SIMPLE
+  header_font_size: 0.4
+  subheader_font_size: 0.15
+  y_axis_format: SMART_NUMBER
+  time_format: smart_date
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":91,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"REPORT_DATE\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"\
+  ROUND(SUM(USED_LEAVE_DAYS) * 100 / NULLIF(SUM(TOTAL_LEAVE_DAYS), 0), 2)\",\"column\"\
+  :null,\"aggregate\":null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"\
+  label\":\"T\u1EC9 l\u1EC7 s\u1EED d\u1EE5ng ng\xE0y ngh\u1EC9\",\"optionName\":\"\
+  metric_yrxeesv5bn_e6mwccjf96h\"}],\"annotation_layers\":[],\"series_limit\":0,\"\
+  order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"\
+  form_data\":{\"datasource\":\"91__table\",\"viz_type\":\"big_number_total\",\"metric\"\
+  :{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(USED_LEAVE_DAYS) * 100\
+  \ / NULLIF(SUM(TOTAL_LEAVE_DAYS), 0), 2)\",\"column\":null,\"aggregate\":null,\"\
+  datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7 s\u1EED\
+  \ d\u1EE5ng ng\xE0y ngh\u1EC9\",\"optionName\":\"metric_yrxeesv5bn_e6mwccjf96h\"\
+  },\"adhoc_filters\":[{\"clause\":\"WHERE\",\"subject\":\"REPORT_DATE\",\"operator\"\
+  :\"TEMPORAL_RANGE\",\"comparator\":\"No filter\",\"expressionType\":\"SIMPLE\"}],\"\
+  header_font_size\":0.4,\"subheader_font_size\":0.15,\"y_axis_format\":\"SMART_NUMBER\"\
+  ,\"time_format\":\"smart_date\",\"extra_form_data\":{},\"dashboards\":[31],\"force\"\
+  :false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"\
+  json\",\"result_type\":\"full\"}"
+cache_timeout: null
+uuid: aade3bc9-6f5b-4cac-ac77-0d98c201e857
+version: 1.0.0
+dataset_uuid: acbaf242-3694-45e5-adf0-10cbd3dbc0a0

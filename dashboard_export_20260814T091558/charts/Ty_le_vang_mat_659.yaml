@@ -1,0 +1,106 @@
+slice_name: "T\u1EF7 l\u1EC7 v\u1EAFng m\u1EB7t"
+description: null
+certified_by: null
+certification_details: null
+viz_type: echarts_timeseries_line
+params:
+  datasource: 88__table
+  viz_type: echarts_timeseries_line
+  slice_id: 659
+  x_axis: REPORT_DATE
+  time_grain_sqla: P1M
+  x_axis_sort_asc: true
+  x_axis_sort_series: name
+  x_axis_sort_series_ascending: true
+  metrics:
+  - expressionType: SQL
+    sqlExpression: ROUND(SUM(ABSENCE_TOTAL) * 100.0 / NULLIF(SUM(TOTAL_WORKING_XJ_TOTAL),
+      0), 2)
+    column: null
+    aggregate: null
+    datasourceWarning: false
+    hasCustomLabel: true
+    label: "T\u1EC9 l\u1EC7 v\u1EAFng m\u1EB7t"
+    optionName: metric_9o0c82eilyb_g7akr4wfp9n
+  groupby: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: REPORT_DATE
+  order_desc: true
+  row_limit: 1000
+  truncate_metric: true
+  show_empty_columns: true
+  comparison_type: values
+  annotation_layers: []
+  forecastPeriods: 10
+  forecastInterval: 0.8
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  sort_series_type: sum
+  color_scheme: presetColors
+  time_shift_color: true
+  seriesType: line
+  only_total: true
+  opacity: 0.2
+  markerSize: 6
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  x_axis_time_format: smart_date
+  rich_tooltip: true
+  showTooltipTotal: true
+  tooltipTimeFormat: smart_date
+  y_axis_format: SMART_NUMBER
+  truncateXAxis: true
+  y_axis_bounds:
+  - null
+  - null
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":88,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"REPORT_DATE\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"time_grain_sqla\":\"P1M\",\"having\":\"\",\"where\"\
+  :\"\"},\"applied_time_extras\":{},\"columns\":[{\"timeGrain\":\"P1M\",\"columnType\"\
+  :\"BASE_AXIS\",\"sqlExpression\":\"REPORT_DATE\",\"label\":\"REPORT_DATE\",\"expressionType\"\
+  :\"SQL\"}],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(ABSENCE_TOTAL)\
+  \ * 100.0 / NULLIF(SUM(TOTAL_WORKING_XJ_TOTAL), 0), 2)\",\"column\":null,\"aggregate\"\
+  :null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7\
+  \ v\u1EAFng m\u1EB7t\",\"optionName\":\"metric_9o0c82eilyb_g7akr4wfp9n\"}],\"orderby\"\
+  :[[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(ABSENCE_TOTAL) * 100.0\
+  \ / NULLIF(SUM(TOTAL_WORKING_XJ_TOTAL), 0), 2)\",\"column\":null,\"aggregate\":null,\"\
+  datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7 v\u1EAF\
+  ng m\u1EB7t\",\"optionName\":\"metric_9o0c82eilyb_g7akr4wfp9n\"},false]],\"annotation_layers\"\
+  :[],\"row_limit\":1000,\"series_columns\":[],\"series_limit\":0,\"order_desc\":true,\"\
+  url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"time_offsets\":[],\"\
+  post_processing\":[{\"operation\":\"pivot\",\"options\":{\"index\":[\"REPORT_DATE\"\
+  ],\"columns\":[],\"aggregates\":{\"T\u1EC9 l\u1EC7 v\u1EAFng m\u1EB7t\":{\"operator\"\
+  :\"mean\"}},\"drop_missing_columns\":false}},{\"operation\":\"flatten\"}]}],\"form_data\"\
+  :{\"datasource\":\"88__table\",\"viz_type\":\"echarts_timeseries_line\",\"slice_id\"\
+  :659,\"x_axis\":\"REPORT_DATE\",\"time_grain_sqla\":\"P1M\",\"x_axis_sort_asc\"\
+  :true,\"x_axis_sort_series\":\"name\",\"x_axis_sort_series_ascending\":true,\"metrics\"\
+  :[{\"expressionType\":\"SQL\",\"sqlExpression\":\"ROUND(SUM(ABSENCE_TOTAL) * 100.0\
+  \ / NULLIF(SUM(TOTAL_WORKING_XJ_TOTAL), 0), 2)\",\"column\":null,\"aggregate\":null,\"\
+  datasourceWarning\":false,\"hasCustomLabel\":true,\"label\":\"T\u1EC9 l\u1EC7 v\u1EAF\
+  ng m\u1EB7t\",\"optionName\":\"metric_9o0c82eilyb_g7akr4wfp9n\"}],\"groupby\":[],\"\
+  adhoc_filters\":[{\"clause\":\"WHERE\",\"comparator\":\"No filter\",\"expressionType\"\
+  :\"SIMPLE\",\"operator\":\"TEMPORAL_RANGE\",\"subject\":\"REPORT_DATE\"}],\"order_desc\"\
+  :true,\"row_limit\":1000,\"truncate_metric\":true,\"show_empty_columns\":true,\"\
+  comparison_type\":\"values\",\"annotation_layers\":[],\"forecastPeriods\":10,\"\
+  forecastInterval\":0.8,\"x_axis_title_margin\":15,\"y_axis_title_margin\":30,\"\
+  y_axis_title_position\":\"Left\",\"sort_series_type\":\"sum\",\"color_scheme\":\"\
+  presetColors\",\"time_shift_color\":true,\"seriesType\":\"line\",\"only_total\"\
+  :true,\"opacity\":0.2,\"markerSize\":6,\"show_legend\":true,\"legendType\":\"scroll\"\
+  ,\"legendOrientation\":\"top\",\"x_axis_time_format\":\"smart_date\",\"rich_tooltip\"\
+  :true,\"showTooltipTotal\":true,\"tooltipTimeFormat\":\"smart_date\",\"y_axis_format\"\
+  :\"SMART_NUMBER\",\"truncateXAxis\":true,\"y_axis_bounds\":[null,null],\"extra_form_data\"\
+  :{},\"dashboards\":[31],\"force\":false,\"result_format\":\"json\",\"result_type\"\
+  :\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}"
+cache_timeout: null
+uuid: 195311ca-0882-4447-8bb9-622b23501a6f
+version: 1.0.0
+dataset_uuid: 7bf8b8a0-8310-41bc-a89c-e04d05af4f43

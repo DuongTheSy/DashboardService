@@ -1,0 +1,71 @@
+slice_name: "Th\xE2m ni\xEAn trung b\xECnh"
+description: null
+certified_by: null
+certification_details: null
+viz_type: big_number_total
+params:
+  datasource: 97__table
+  viz_type: big_number_total
+  metric:
+    expressionType: SIMPLE
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: AVG_SENIORITY_YEARS
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 2309
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: null
+      type_generic: null
+      verbose_name: null
+      warning_markdown: null
+    aggregate: MAX
+    sqlExpression: null
+    datasourceWarning: false
+    hasCustomLabel: true
+    label: "Th\xE2m ni\xEAn trung b\xECnh"
+    optionName: metric_x4gu2bprsq_ixglx2drw8
+  adhoc_filters: []
+  subheader: "n\u0103m"
+  header_font_size: 0.4
+  subheader_font_size: 0.125
+  y_axis_format: .3s
+  time_format: smart_date
+  conditional_formatting: []
+  extra_form_data: {}
+  dashboards:
+  - 31
+query_context: "{\"datasource\":{\"id\":97,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"AVG_SENIORITY_YEARS\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":2309,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":null,\"type_generic\":null,\"verbose_name\":null,\"warning_markdown\":null},\"\
+  aggregate\":\"MAX\",\"sqlExpression\":null,\"datasourceWarning\":false,\"hasCustomLabel\"\
+  :true,\"label\":\"Th\xE2m ni\xEAn trung b\xECnh\",\"optionName\":\"metric_x4gu2bprsq_ixglx2drw8\"\
+  }],\"annotation_layers\":[],\"series_limit\":0,\"order_desc\":true,\"url_params\"\
+  :{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\":{\"datasource\"\
+  :\"97__table\",\"viz_type\":\"big_number_total\",\"metric\":{\"expressionType\"\
+  :\"SIMPLE\",\"column\":{\"advanced_data_type\":null,\"certification_details\":null,\"\
+  certified_by\":null,\"column_name\":\"AVG_SENIORITY_YEARS\",\"description\":null,\"\
+  expression\":null,\"filterable\":true,\"groupby\":true,\"id\":2309,\"is_certified\"\
+  :false,\"is_dttm\":false,\"python_date_format\":null,\"type\":null,\"type_generic\"\
+  :null,\"verbose_name\":null,\"warning_markdown\":null},\"aggregate\":\"MAX\",\"\
+  sqlExpression\":null,\"datasourceWarning\":false,\"hasCustomLabel\":true,\"label\"\
+  :\"Th\xE2m ni\xEAn trung b\xECnh\",\"optionName\":\"metric_x4gu2bprsq_ixglx2drw8\"\
+  },\"adhoc_filters\":[],\"subheader\":\"n\u0103m\",\"header_font_size\":0.4,\"subheader_font_size\"\
+  :0.125,\"y_axis_format\":\".3s\",\"time_format\":\"smart_date\",\"conditional_formatting\"\
+  :[],\"extra_form_data\":{},\"dashboards\":[31],\"force\":false,\"result_format\"\
+  :\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"\
+  full\"}"
+cache_timeout: null
+uuid: 86c836ab-0e37-4e28-9cf4-33f3a1d2a505
+version: 1.0.0
+dataset_uuid: 5c9e1ad1-ed5b-4ead-a853-fe46a43449ed

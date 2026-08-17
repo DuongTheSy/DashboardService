@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PVPUS_LIVE (PVPTCT)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="dashboard-canvas">
+    <div class="tab-nav" id="tabNav" role="tablist" aria-label="Dashboard tabs"></div>
+    <div class="filter-bar" id="filterBar">
+      <div class="filter-group">
+        <label for="filterOrg">Đơn vị</label>
+        <select id="filterOrg"><option value="">Tất cả</option></select>
+      </div>
+      <div class="filter-group">
+        <label for="filterYear">Năm</label>
+        <select id="filterYear"><option value="">Tất cả</option></select>
+      </div>
+      <div class="filter-group">
+        <label for="filterMonth">Tháng</label>
+        <select id="filterMonth"><option value="">Tất cả</option></select>
+      </div>
+      <button id="btnApply" class="btn-apply" type="button">Áp dụng</button>
+      <span id="filterStatus" class="filter-status"></span>
+    </div>
+    <div id="banner" class="status-banner">Đang tải data.json...</div>
+    <div id="panels"></div>
+  </main>
+
+  <script src="echarts.min.js"></script>
+  <script src="charts-meta.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
