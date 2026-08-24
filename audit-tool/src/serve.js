@@ -10,8 +10,23 @@ const DATASET_COLUMNS = require("./datasetColumns");
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 const ROOT = path.join(__dirname, "..", "report");
+const ORGANIZATIONS_FILE = path.join(ROOT, "organizations.json");
+const LOG_DIR = path.join(__dirname, "..", "logs");
 const PORT = Number(process.env.PORT || 5173);
 const HOST = process.env.HOST || "0.0.0.0";
+
+fs.mkdirSync(LOG_DIR, { recursive: true });
+
+function writeLog(level, message, details) {
+  const now = new Date();
+  const date = now.toISOString().slice(0, 10);
+  const timestamp = now.toISOString();
+  const suffix = details ? ` ${JSON.stringify(details)}` : "";
+  const line = `${timestamp} [${level}] ${message}${suffix}\n`;
+  fs.appendFileSync(path.join(LOG_DIR, `dashboard-${date}.log`), line, "utf-8");
+  if (level === "ERROR") console.error(line.trim());
+  else console.log(line.trim());
+}
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -25,9 +40,7 @@ const MIME = {
 function loadConfig() {
   const configPath = path.join(__dirname, "..", "config.json");
   if (!fs.existsSync(configPath)) {
-    console.error(
-      "Không tìm thấy config.json. Copy config.example.json -> config.json rồi điền user/password/connectString."
-    );
+    writeLog("ERROR", "Không tìm thấy config.json");
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(configPath, "utf-8"));
@@ -38,11 +51,8 @@ function buildWhere(chart, filters) {
   const clauses = [];
   const binds = {};
 
-  if (cols.includes("ORG_ID3") && filters.orgId) {
-    clauses.push("ORG_ID3 = :orgId");
-    binds.orgId = filters.orgId;
-  } else if (cols.includes("ORG_NAME3") && filters.orgName3) {
-    clauses.push("ORG_NAME3 = :orgName3");
+  if (cols.includes("ORG_NAME3") && filters.orgName3) {
+    clauses.push("UPPER(TRIM(ORG_NAME3)) = UPPER(TRIM(:orgName3))");
     binds.orgName3 = filters.orgName3;
   }
   if (cols.includes("YEAR") && filters.year) {
@@ -73,6 +83,18 @@ function buildQuery(chart, filters) {
     sql: `SELECT ${chart.dim} AS DIM, ${chart.metric} AS VALUE FROM ${chart.table} ${where} GROUP BY ${chart.dim} ORDER BY ${chart.dim}`,
     binds,
   };
+}
+
+function resolveOrganizationName(orgId) {
+  if (!orgId || !fs.existsSync(ORGANIZATIONS_FILE)) return null;
+  try {
+    const organizations = JSON.parse(fs.readFileSync(ORGANIZATIONS_FILE, "utf-8"));
+    const organization = organizations.find((item) => String(item.id) === String(orgId));
+    return organization ? organization.name : null;
+  } catch (err) {
+    writeLog("WARN", "Không đọc được organizations.json", { error: err.message });
+    return null;
+  }
 }
 
 async function fetchFromOracle(filters) {
@@ -139,7 +161,7 @@ async function fetchFilterOptions() {
     // Tháng cố định 1-12
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   } catch (err) {
-    console.error("Lỗi khi lấy filter options:", err.message);
+    writeLog("ERROR", "Lỗi khi lấy filter options", { error: err.message });
   }
 
   await connection.close();
@@ -150,6 +172,7 @@ async function fetchFilterOptions() {
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  const startedAt = Date.now();
 
   // API: lấy dữ liệu với filter
   if (url.pathname === "/api/fetch") {
@@ -161,7 +184,14 @@ const server = http.createServer(async (req, res) => {
         year: url.searchParams.get("year") || null,
         month: url.searchParams.get("month") || null,
       };
-      console.log(`[API] /api/fetch orgId=${filters.orgId} year=${filters.year} month=${filters.month}`);
+      if (!filters.orgName3 && filters.orgId) {
+        filters.orgName3 = resolveOrganizationName(filters.orgId);
+      }
+      writeLog("INFO", "API fetch bắt đầu", {
+        orgId: filters.orgId,
+        year: filters.year,
+        month: filters.month,
+      });
       const data = await fetchFromOracle(filters);
 
       // Đồng thời ghi ra file data.json để lần sau mở trang có sẵn
@@ -170,8 +200,9 @@ const server = http.createServer(async (req, res) => {
 
       res.writeHead(200);
       res.end(JSON.stringify(data));
+      writeLog("INFO", "API fetch hoàn tất", { durationMs: Date.now() - startedAt });
     } catch (err) {
-      console.error("[API] Lỗi:", err.message);
+      writeLog("ERROR", "API fetch lỗi", { error: err.message, durationMs: Date.now() - startedAt });
       res.writeHead(500);
       res.end(JSON.stringify({ error: err.message }));
     }
@@ -182,12 +213,13 @@ const server = http.createServer(async (req, res) => {
   if (url.pathname === "/api/filters") {
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     try {
-      console.log("[API] /api/filters");
+      writeLog("INFO", "API filters bắt đầu");
       const options = await fetchFilterOptions();
       res.writeHead(200);
       res.end(JSON.stringify(options));
+      writeLog("INFO", "API filters hoàn tất", { durationMs: Date.now() - startedAt });
     } catch (err) {
-      console.error("[API] Lỗi:", err.message);
+      writeLog("ERROR", "API filters lỗi", { error: err.message, durationMs: Date.now() - startedAt });
       res.writeHead(500);
       res.end(JSON.stringify({ error: err.message }));
     }
@@ -228,6 +260,6 @@ function getUrls() {
 }
 
 server.listen(PORT, HOST, () => {
-  console.log("Report server đang chạy:");
-  getUrls().forEach((url) => console.log(`  ${url}`));
+  writeLog("INFO", "DashboardService khởi động", { host: HOST, port: PORT });
+  getUrls().forEach((url) => writeLog("INFO", "Service URL", { url }));
 });

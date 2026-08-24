@@ -18,6 +18,69 @@ function compactNumber(v) {
   return fmtNumber(n);
 }
 
+function formatDateLabel(value) {
+  const text = String(value ?? "");
+  const match = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return match ? `${match[3]}/${match[2]}/${match[1]}` : text;
+}
+
+function initCustomSelect(select) {
+  if (!select || select.dataset.customized === "true") return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "custom-select";
+  const trigger = document.createElement("button");
+  trigger.type = "button";
+  trigger.className = "custom-select-trigger";
+  const menu = document.createElement("div");
+  menu.className = "custom-select-menu";
+  select.parentNode.insertBefore(wrapper, select);
+  wrapper.appendChild(trigger);
+  wrapper.appendChild(menu);
+  wrapper.appendChild(select);
+  select.style.display = "none";
+  select.dataset.customized = "true";
+
+  const sync = () => {
+    const selected = select.options[select.selectedIndex];
+    trigger.textContent = selected ? selected.textContent : "";
+    menu.querySelectorAll(".custom-select-option").forEach((option) => {
+      option.classList.toggle("selected", option.dataset.value === select.value);
+    });
+  };
+
+  const rebuild = () => {
+    menu.innerHTML = "";
+    Array.from(select.options).forEach((option) => {
+      const item = document.createElement("div");
+      item.className = "custom-select-option";
+      item.dataset.value = option.value;
+      item.textContent = option.textContent;
+      item.addEventListener("click", () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        wrapper.classList.remove("open");
+        sync();
+      });
+      menu.appendChild(item);
+    });
+    sync();
+  };
+
+  trigger.addEventListener("click", () => {
+    document.querySelectorAll(".custom-select.open").forEach((item) => {
+      if (item !== wrapper) item.classList.remove("open");
+    });
+    wrapper.classList.toggle("open");
+  });
+  document.addEventListener("click", (event) => {
+    if (!wrapper.contains(event.target)) wrapper.classList.remove("open");
+  });
+  select.addEventListener("change", sync);
+  rebuild();
+  return rebuild;
+}
+
 function renderBigNumber(body, entry) {
   const stat = document.createElement("div");
   stat.className = "big-stat";
@@ -51,7 +114,7 @@ function buildPieOption(meta, rows) {
       itemWidth: 17,
       itemHeight: 10,
       icon: "roundRect",
-      textStyle: { color: "#4f5b56", fontSize: 14 },
+      textStyle: { color: "#4f5b56", fontSize: 13, fontFamily: "Fira Sans, Segoe UI, sans-serif" },
       pageIconColor: "#2f3b36",
       pageIconInactiveColor: "#c7d0cb",
       pageTextStyle: { color: "#2f3b36", fontSize: 14 },
@@ -67,6 +130,7 @@ function buildPieOption(meta, rows) {
         show: true,
         color: "#2f3b36",
         fontSize: 13,
+        fontFamily: "Fira Sans, Segoe UI, sans-serif",
         formatter: (p) => {
           const pct = total ? (Number(p.value || 0) * 100 / total).toFixed(2) : "0.00";
           return `${p.name}: ${compactNumber(p.value)} (${pct}%)`;
@@ -91,7 +155,7 @@ function buildBarOption(meta, rows) {
       itemWidth: 19,
       itemHeight: 11,
       icon: "roundRect",
-      textStyle: { color: "#4f5b56", fontSize: 14 },
+      textStyle: { color: "#4f5b56", fontSize: 13, fontFamily: "Fira Sans, Segoe UI, sans-serif" },
       data: [meta.name],
     },
     grid: { left: 150, right: 24, top: 34, bottom: 24 },
@@ -107,7 +171,7 @@ function buildBarOption(meta, rows) {
       data: labels,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: "#66716c", fontSize: 13, width: 140, overflow: "truncate" },
+      axisLabel: { color: "#66716c", fontSize: 13, width: 140, overflow: "truncate", fontFamily: "Fira Sans, Segoe UI, sans-serif" },
     },
     series: [{
       name: meta.name,
@@ -128,14 +192,25 @@ function buildBarOption(meta, rows) {
 function buildLineOption(meta, rows) {
   return {
     color: [PALETTE[0]],
-    tooltip: { trigger: "axis", valueFormatter: fmtNumber },
+    tooltip: {
+      trigger: "axis",
+      valueFormatter: fmtNumber,
+      formatter: (params) => {
+        const items = Array.isArray(params) ? params : [params];
+        const title = formatDateLabel(items[0]?.axisValue);
+        return [title, ...items.map((item) => {
+          const marker = item.marker || "";
+          return `${marker} ${item.seriesName}: <b>${fmtNumber(item.value)}</b>`;
+        })].join("<br>");
+      },
+    },
     legend: {
       top: 0,
       right: 0,
       itemWidth: 19,
       itemHeight: 11,
       icon: "circle",
-      textStyle: { color: "#4f5b56", fontSize: 14 },
+      textStyle: { color: "#4f5b56", fontSize: 13, fontFamily: "Fira Sans, Segoe UI, sans-serif" },
       data: ["Tỉ lệ phần trăm"],
     },
     grid: { left: 48, right: 20, top: 36, bottom: 28 },
@@ -145,7 +220,7 @@ function buildLineOption(meta, rows) {
       boundaryGap: false,
       axisLine: { lineStyle: { color: "#dce3df" } },
       axisTick: { show: false },
-      axisLabel: { color: "#7a8580", fontSize: 13 },
+      axisLabel: { color: "#7a8580", fontSize: 13, formatter: formatDateLabel },
     },
     yAxis: {
       type: "value",
@@ -230,6 +305,17 @@ function renderTabs(data) {
   panels.innerHTML = "";
   chartInstances.splice(0, chartInstances.length);
 
+  const renderPanel = (tabData, panel) => {
+    if (panel.dataset.rendered === "true") return;
+    tabData.rows.forEach((row) => {
+      const rowEl = document.createElement("div");
+      rowEl.className = "chart-row";
+      row.forEach((meta) => rowEl.appendChild(renderCard(meta, data)));
+      panel.appendChild(rowEl);
+    });
+    panel.dataset.rendered = "true";
+  };
+
   window.CHARTS_META.forEach((tabData, i) => {
     const btn = document.createElement("button");
     btn.className = "tab-btn" + (i === 0 ? " active" : "");
@@ -240,7 +326,9 @@ function renderTabs(data) {
       document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
       document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
       btn.classList.add("active");
-      document.getElementById("panel-" + i).classList.add("active");
+      const panel = document.getElementById("panel-" + i);
+      panel.classList.add("active");
+      renderPanel(tabData, panel);
       requestAnimationFrame(resizeCharts);
     });
     nav.appendChild(btn);
@@ -249,13 +337,8 @@ function renderTabs(data) {
     panel.className = "tab-panel" + (i === 0 ? " active" : "");
     panel.id = "panel-" + i;
     panel.role = "tabpanel";
-    tabData.rows.forEach((row) => {
-      const rowEl = document.createElement("div");
-      rowEl.className = "chart-row";
-      row.forEach((meta) => rowEl.appendChild(renderCard(meta, data)));
-      panel.appendChild(rowEl);
-    });
     panels.appendChild(panel);
+    if (i === 0) renderPanel(tabData, panel);
   });
   requestAnimationFrame(resizeCharts);
 }
@@ -283,7 +366,7 @@ async function loadOrganizations() {
 
 async function loadFilterOptions() {
   try {
-    const res = await fetch("/api/filters");
+    const res = await fetch("api/filters");
     if (!res.ok) return;
     const options = await res.json();
     const yearSel = document.getElementById("filterYear");
@@ -324,6 +407,7 @@ async function applyFilter() {
   const banner = document.getElementById("banner");
   const btn = document.getElementById("btnApply");
   const status = document.getElementById("filterStatus");
+  const loadingOverlay = document.getElementById("loadingOverlay");
   const orgId = document.getElementById("filterOrg").value;
   const year = document.getElementById("filterYear").value;
   const month = document.getElementById("filterMonth").value;
@@ -332,7 +416,9 @@ async function applyFilter() {
   const org = orgList.find((o) => String(o.id) === orgId);
 
   btn.disabled = true;
-  status.textContent = "Đang truy vấn Oracle...";
+  loadingOverlay.classList.add("active");
+  status.className = "filter-status loading";
+  status.textContent = "Đang tải dữ liệu...";
   banner.className = "status-banner";
   banner.textContent = "";
 
@@ -343,7 +429,7 @@ async function applyFilter() {
     if (year) params.set("year", year);
     if (month) params.set("month", month);
 
-    const res = await fetch("/api/fetch?" + params.toString());
+    const res = await fetch("api/fetch?" + params.toString());
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.error || "Server error");
@@ -355,13 +441,16 @@ async function applyFilter() {
     banner.textContent = errCount ? `${errCount}/${results.length} chart lỗi truy vấn.` : "";
     renderTabs(data);
     updateUrlParams();
-    status.textContent = "Hoàn tất lúc " + new Date().toLocaleTimeString("vi-VN");
+    status.className = "filter-status";
+    status.textContent = "";
   } catch (err) {
     banner.className = "status-banner err";
     banner.textContent = err.message;
+    status.className = "filter-status";
     status.textContent = "Lỗi!";
   } finally {
     btn.disabled = false;
+    loadingOverlay.classList.remove("active");
   }
 }
 
@@ -376,11 +465,27 @@ async function main() {
     // Load filter options from DB
     await loadFilterOptions();
 
+    initCustomSelect(document.getElementById("filterOrg"));
+    initCustomSelect(document.getElementById("filterYear"));
+    initCustomSelect(document.getElementById("filterMonth"));
+
     // Read URL params (?id=69&year=2025&month=6)
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("id")) document.getElementById("filterOrg").value = urlParams.get("id");
-    if (urlParams.get("year")) document.getElementById("filterYear").value = urlParams.get("year");
-    if (urlParams.get("month")) document.getElementById("filterMonth").value = urlParams.get("month");
+    const paramId = urlParams.get("id");
+    if (paramId) {
+      document.getElementById("filterOrg").value = paramId;
+      document.getElementById("orgFilterGroup").classList.add("is-hidden");
+    }
+    if (urlParams.get("year")) {
+      const year = document.getElementById("filterYear");
+      year.value = urlParams.get("year");
+      year.dispatchEvent(new Event("change"));
+    }
+    if (urlParams.get("month")) {
+      const month = document.getElementById("filterMonth");
+      month.value = urlParams.get("month");
+      month.dispatchEvent(new Event("change"));
+    }
 
     // Bind Apply button
     document.getElementById("btnApply").addEventListener("click", applyFilter);

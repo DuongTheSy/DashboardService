@@ -30,10 +30,10 @@ window.CHARTS_META = [
   ]},
   { tab: "Lương & chi phí nhân sự", rows: [
     [ {id:658,name:"Tỉ lệ quỹ lương / doanh thu",viz:"big_number_total",w:4},
-      {id:669,name:"Chi phí làm thêm giờ",viz:"big_number_total",w:4},
-      {id:666,name:"Chi phí nhân công",viz:"echarts_timeseries_bar",w:4} ],
+      {id:669,name:"Chi phí làm thêm giờ",viz:"big_number_total",w:4} ],
     [ {id:670,name:"Mức tăng lương",viz:"echarts_timeseries_line",w:4},
-      {id:665,name:"Tổng thu nhập",viz:"echarts_timeseries_bar",w:4} ],
+      {id:665,name:"Tổng thu nhập",viz:"echarts_timeseries_bar",w:4},
+      {id:666,name:"Chi phí nhân công",viz:"echarts_timeseries_bar",w:4} ],
   ]},
   { tab: "Chấm công và thời gian làm việc", rows: [
     [ {id:659,name:"Tỷ lệ vắng mặt",viz:"echarts_timeseries_line",w:4},

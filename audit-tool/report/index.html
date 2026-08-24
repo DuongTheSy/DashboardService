@@ -3,14 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PVPUS_LIVE (PVPTCT)</title>
+  <title>Dashboard Service</title>
+  <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="loadingOverlay" class="loading-overlay" aria-live="polite" aria-busy="true">
+    <div class="loading-mark" aria-label="Đang tải dữ liệu">
+      <svg class="loading-orbit" viewBox="0 0 160 160" role="img" aria-hidden="true">
+        <defs>
+          <path id="loadingOrbitPath" d="M 80,80 m -58,0 a 58,58 0 1,1 116,0 a 58,58 0 1,1 -116,0" />
+        </defs>
+        <text>
+          <textPath href="#loadingOrbitPath" startOffset="0%">Histaff System - Professional HRM Solution</textPath>
+        </text>
+      </svg>
+      <div class="loading-arrow">&#8594;</div>
+    </div>
+  </div>
   <main class="dashboard-canvas">
     <div class="tab-nav" id="tabNav" role="tablist" aria-label="Dashboard tabs"></div>
     <div class="filter-bar" id="filterBar">
-      <div class="filter-group">
+      <div id="orgFilterGroup" class="filter-group">
         <label for="filterOrg">Đơn vị</label>
         <select id="filterOrg"><option value="">Tất cả</option></select>
       </div>

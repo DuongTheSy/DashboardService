@@ -23,7 +23,7 @@ function buildWhere(chart, filters) {
   const binds = {};
 
   if (cols.includes("ORG_NAME3") && filters.orgName3) {
-    clauses.push("ORG_NAME3 = :orgName3");
+    clauses.push("UPPER(TRIM(ORG_NAME3)) = UPPER(TRIM(:orgName3))");
     binds.orgName3 = filters.orgName3;
   }
   if (cols.includes("YEAR") && filters.year) {
