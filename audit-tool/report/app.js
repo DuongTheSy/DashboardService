@@ -81,10 +81,13 @@ function initCustomSelect(select) {
   return rebuild;
 }
 
-function renderBigNumber(body, entry) {
+function renderBigNumber(body, meta, entry) {
   const stat = document.createElement("div");
   stat.className = "big-stat";
-  stat.textContent = fmtNumber(entry.value);
+
+  const value = fmtNumber(entry.value);
+  stat.textContent = meta.id === 668 ? `${value}%` : value;
+
   body.appendChild(stat);
 }
 
@@ -211,7 +214,7 @@ function buildLineOption(meta, rows) {
       itemHeight: 11,
       icon: "circle",
       textStyle: { color: "#4f5b56", fontSize: 13, fontFamily: "Fira Sans, Segoe UI, sans-serif" },
-      data: ["Tỉ lệ phần trăm"],
+      data: [meta.name],
     },
     grid: { left: 48, right: 20, top: 36, bottom: 28 },
     xAxis: {
@@ -230,7 +233,7 @@ function buildLineOption(meta, rows) {
       axisLabel: { color: "#7a8580", fontSize: 13, formatter: compactNumber },
     },
     series: [{
-      name: "Tỉ lệ phần trăm",
+      name: meta.name,
       type: "line",
       data: rows.map((r) => Number(r.value || 0)),
       symbol: "circle",
@@ -287,7 +290,7 @@ function renderCard(meta, data) {
     renderEmpty(body, "Lỗi truy vấn: " + entry.error);
     card.classList.add("has-error");
   } else if (entry.type === "single") {
-    renderBigNumber(body, entry);
+    renderBigNumber(body, meta, entry);
   } else {
     renderChart(body, meta, entry);
   }
